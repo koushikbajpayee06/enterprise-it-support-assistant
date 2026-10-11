@@ -243,3 +243,183 @@ header > p:not(.backend-status) {
   color: #64748b;
   text-align: center;
 }
+
+.rag-card {
+  margin-top: 24px;
+  padding: 28px;
+  border: 1px solid #dbe3ef;
+  border-radius: 16px;
+  background: rgb(255 255 255 / 92%);
+  box-shadow: 0 12px 32px rgb(15 23 42 / 8%);
+}
+
+.rag-card h2 {
+  margin: 0 0 8px;
+  color: #172033;
+}
+
+.rag-card > p {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.rag-card form {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.rag-card textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  outline: none;
+  resize: vertical;
+  background: #ffffff;
+  color: #172033;
+  font: inherit;
+  line-height: 1.6;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.rag-card textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgb(37 99 235 / 12%);
+}
+
+.rag-card textarea:disabled {
+  background: #f1f5f9;
+  cursor: not-allowed;
+}
+
+.rag-card button {
+  justify-self: start;
+  min-height: 46px;
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 10px;
+  background: #2563eb;
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  transition:
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.rag-card button:hover:not(:disabled) {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.rag-card button:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+.rag-error {
+  margin: 18px 0 0;
+  padding: 12px 14px;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.rag-answer {
+  margin-top: 24px;
+  padding: 20px;
+  border: 1px solid #bfdbfe;
+  border-left: 4px solid #2563eb;
+  border-radius: 12px;
+  background: #eff6ff;
+}
+
+.rag-answer h3 {
+  margin: 0 0 10px;
+  color: #1e3a8a;
+  font-size: 17px;
+}
+
+.rag-answer p {
+  margin: 0;
+  color: #1e293b;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.rag-citations {
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.rag-citations h3 {
+  margin: 0;
+  color: #172033;
+  font-size: 17px;
+}
+
+.citation-card {
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.citation-card summary {
+  padding: 14px 16px;
+  color: #1d4ed8;
+  cursor: pointer;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.citation-card[open] summary {
+  border-bottom: 1px solid #e2e8f0;
+  background: #eff6ff;
+}
+
+.citation-card p {
+  margin: 0;
+  padding: 16px 16px 10px;
+  color: #334155;
+  line-height: 1.65;
+  white-space: pre-wrap;
+}
+
+.citation-card small {
+  display: block;
+  padding: 0 16px 16px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .rag-card {
+    margin-top: 16px;
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  .rag-card button {
+    width: 100%;
+    justify-self: stretch;
+  }
+
+  .rag-answer {
+    padding: 16px;
+  }
+
+  .citation-card summary {
+    padding: 13px 14px;
+  }
+}

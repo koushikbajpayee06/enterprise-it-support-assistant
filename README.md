@@ -52,11 +52,16 @@ The next milestone is grounded RAG answer generation. Retrieved chunks and their
 - Preserve PDF page numbers through chunking and indexing
 - Display page-aware search citations in React
 - Test PDF page extraction and metadata preservation with pytest
+- Generate grounded answers using retrieved document chunks
+- Add inline citation IDs to generated answers
+- Return source, page, chunk, content, and distance for cited evidence
+- Filter citations that were not used in the generated answer
+- Skip the chat-model call when no relevant context is found
+- Provide a React question-answering interface with expandable citations
+- Test RAG context building, generation, fallback, and citation filtering
 
 ### Planned
 
-- Generate grounded answers with source and page citations
-- Build a React question-answering interface
 - Orchestrate support workflows with LangGraph
 - Store document metadata and persistent state in PostgreSQL
 - Store conversation history in PostgreSQL
@@ -93,7 +98,7 @@ The next milestone is grounded RAG answer generation. Retrieved chunks and their
 - LangChain
 - OpenAI
 - ChromaDB
-- Retrieval-Augmented Generation (planned)
+- Retrieval-Augmented Generation
 - LangGraph (planned)
 - Recursive Character Text Splitter
 
@@ -547,6 +552,14 @@ Page-level citations, generated RAG answers, LangGraph workflows, PostgreSQL per
 
 Generated RAG answers, LangGraph workflows, PostgreSQL persistence, authentication, ticket operations, human approval, streaming, and production deployment have not yet been implemented.
 
+## Current Development Status
+
+The application currently supports document upload, page-aware PDF ingestion, recursive chunking, OpenAI embeddings, persistent ChromaDB indexing, semantic retrieval, and grounded RAG answers through FastAPI and React.
+
+Generated answers use retrieved document chunks as context and include inline citation IDs. Each cited source includes its filename, PDF page number when available, chunk index, supporting content, and vector distance. If no relevant context passes the retrieval threshold, the application returns a safe fallback response without calling the chat model.
+
+Conversation history, LangGraph workflows, PostgreSQL persistence, authentication, ticket operations, human approval, streaming, and production deployment have not yet been implemented.
+
 ## Development Roadmap
 
 - [x] Initialize Git repository
@@ -574,9 +587,15 @@ Generated RAG answers, LangGraph workflows, PostgreSQL persistence, authenticati
 - [x] Handle searches with no relevant results
 - [x] Add automated unit tests for retrieval filtering
 - [x] Preserve PDF page numbers during ingestion
-- [ ] Build the history-aware RAG pipeline
-- [ ] Return generated answers with source and page citations
-- [ ] Add retrieval evaluation datasets and metrics
+- [x] Preserve source and page metadata through chunking
+- [x] Build the grounded RAG answer pipeline
+- [x] Return generated answers with source and page citations
+- [x] Skip the chat model when no relevant context is found
+- [x] Filter unused citations from generated responses
+- [x] Build the React RAG question-answering interface
+- [x] Add automated tests for RAG services
+- [ ] Build a history-aware RAG pipeline
+- [ ] Add retrieval and RAG evaluation datasets and metrics
 - [ ] Build a LangGraph support workflow
 - [ ] Add PostgreSQL metadata, conversation history, and workflow state
 - [ ] Add conversation resume functionality

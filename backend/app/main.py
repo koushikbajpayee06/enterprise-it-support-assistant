@@ -6,6 +6,7 @@ from app.api.routes.health import router as health_router
 from app.config import settings
 
 from app.api.routes.search import router as search_router
+from app.api.routes.rag import router as rag_router
 app = FastAPI(
     title="DocuMind AI API",
     description="Backend API for the DocuMind AI document intelligence platform.",
@@ -23,6 +24,7 @@ app.add_middleware(
 app.include_router(health_router)
 app.include_router(documents_router)
 app.include_router(search_router)
+app.include_router(rag_router)
 
 
 @app.get("/")
